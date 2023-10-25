@@ -60,10 +60,5 @@ public class ClickAndTextElementTests {
         String logoText = swagLogo.getText();
 
         Assert.assertEquals(logoText, "Swag Labs");
-
-
-
-
-
     }
 }
