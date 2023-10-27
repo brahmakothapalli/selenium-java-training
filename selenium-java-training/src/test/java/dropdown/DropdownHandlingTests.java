@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
 import java.util.List;
 
 public class DropdownHandlingTests {
@@ -17,6 +18,7 @@ public class DropdownHandlingTests {
         String username = "standard_user";
         String pwd = "secret_sauce";
         WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.get("https://www.saucedemo.com/");
         driver.manage().window().maximize();
         WebElement userName = driver.findElement(By.id("user-name"));
