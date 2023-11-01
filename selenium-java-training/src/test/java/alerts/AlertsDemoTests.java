@@ -20,12 +20,13 @@ public class AlertsDemoTests {
 
         Alert alertHandler = driver.switchTo().alert();
 
+        driver.switchTo().defaultContent();
+
         // getting alert text
         String alertText = alertHandler.getText();
 
         // clicking Ok
         alertHandler.accept();
-
 
         // confirm alert Ok & Cancel
         driver.findElement(By.xpath("//button[text()='Click for JS Confirm']")).click();
