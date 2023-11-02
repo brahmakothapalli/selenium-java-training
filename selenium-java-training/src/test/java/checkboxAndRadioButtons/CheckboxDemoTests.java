@@ -1,19 +1,29 @@
 package checkboxAndRadioButtons;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class CheckboxDemoTests {
 
-    @Test
-    public void testCheckboxSelection(){
+    WebDriver driver = null;
 
-        WebDriver driver = new ChromeDriver();
+    @BeforeMethod
+    public void setUp(){
+        System.out.println("Launching browser : setUp");
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/checkboxes");
         driver.manage().window().maximize();
+    }
+
+    @Test
+    public void testCheckboxSelection(){
 
         WebElement chkBox1 = driver.findElement(By.xpath("(//form[@id='checkboxes']/input)[1]"));
 
@@ -28,17 +38,11 @@ public class CheckboxDemoTests {
         chkBox2.click();
 
         System.out.println("Checkbox2 is selected ? --- "+chkBox2.isSelected());
-
-
     }
 
 
     @Test
     public void testRadioButtonsSelection(){
-
-        WebDriver driver = new ChromeDriver();
-        driver.get("https://demo.guru99.com/test/radio.html");
-        driver.manage().window().maximize();
 
         WebElement firstRadioButton = driver.findElement(By.id("vfb-7-1"));
 
@@ -55,8 +59,11 @@ public class CheckboxDemoTests {
 
 
 
+    }
 
-
-
+    @AfterMethod
+    public void closeBrowser(){
+        System.out.println("closing browser : closeBrowser");
+        driver.close();
     }
 }
