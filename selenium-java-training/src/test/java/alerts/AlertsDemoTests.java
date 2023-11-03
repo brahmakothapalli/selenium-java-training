@@ -1,5 +1,6 @@
 package alerts;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +12,7 @@ public class AlertsDemoTests {
     @Test
     public void testHandlingAlerts() throws InterruptedException {
 
+        WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/javascript_alerts");
         driver.manage().window().maximize();
@@ -44,11 +46,13 @@ public class AlertsDemoTests {
 
         System.out.println(alertText);
 
+        driver.close();
+
     }
 
     @Test
     public void testHandleAlertPrompt() {
-
+        WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/javascript_alerts");
         driver.manage().window().maximize();

@@ -12,7 +12,7 @@ import java.util.List;
 
 public class DropdownHandlingTests {
 
-    @Test
+    @Test(groups = {"smoke"})
     public void testSelectDropdownValues() {
 
         String username = "standard_user";

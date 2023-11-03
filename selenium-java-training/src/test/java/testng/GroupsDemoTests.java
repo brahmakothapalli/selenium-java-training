@@ -1,8 +1,10 @@
 package testng;
 
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
-public class AnnotationDemoTests extends BaseTest{
+public class GroupsDemoTests extends BaseTest{
 
 
     @BeforeMethod
@@ -11,7 +13,7 @@ public class AnnotationDemoTests extends BaseTest{
         System.out.println("App Login");
     }
 
-    @Test()
+    @Test(groups = {"smoke"})
     public void testProductSearch(){
         System.out.println("Product searched successfully");
     }
@@ -24,6 +26,21 @@ public class AnnotationDemoTests extends BaseTest{
     @Test(priority = 2)
     public void testCheckout(){
         System.out.println("Product checked-out successfully");
+    }
+
+    @Test(groups = {"smoke"})
+    public void testProductSearch2(){
+        System.out.println("Product searched successfully2");
+    }
+
+    @Test(priority = 1)
+    public void testAddToCart2(){
+        System.out.println("Product added successfully2");
+    }
+
+    @Test(priority = 2, groups = {"smoke"})
+    public void testCheckout2(){
+        System.out.println("Product checked-out successfully2");
     }
 
 

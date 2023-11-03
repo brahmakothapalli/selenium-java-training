@@ -41,7 +41,7 @@ public class CheckboxDemoTests {
     }
 
 
-    @Test
+    @Test(groups = {"smoke"})
     public void testRadioButtonsSelection(){
 
         WebElement firstRadioButton = driver.findElement(By.id("vfb-7-1"));
