@@ -16,4 +16,19 @@ public class ReadHTMLTextTests {
         System.out.println(textOnly1.split("'")[1]);
         System.out.println(textOnly2.split("'")[1]);
     }
+
+
+    @Test
+    public void testHtml2(){
+        String htmlText = "<html>A copy of a completed, signed and dated NetGuard® Select Insurance Application (<a href=\"http://www.nasinsurance.com/var/documents/NGSNBA-12022.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">NGSNBA-12022</a>).</html>";
+        String htmlText1 = "<html>Receipt of a signed and dated D1 Disclosure Notice: (<a href=\"http://www.nasinsurance.com/var/documents/D-1.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">D-1 Form</a>).</html>";
+        String htmlText2 = "<html>Receipt of a State of California Producer License copy from the Broker working directly with the Insured.</html>";
+        String textOnly = Jsoup.parse(htmlText).text();
+        String textOnly1 = Jsoup.parse(htmlText1).text();
+        String textOnly2 = Jsoup.parse(htmlText2).text();
+//        System.out.println(textOnly.split("'")[0]);
+        System.out.println(textOnly);
+        System.out.println(textOnly1);
+        System.out.println(textOnly2);
+    }
 }

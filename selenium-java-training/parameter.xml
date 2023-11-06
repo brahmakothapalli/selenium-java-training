@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="tests" thread-count="2">
+
+    <parameter name="browser" value="chrome"/>
+    <parameter name="userid" value="brahma"/>
+    <parameter name="password" value="12345"/>
+    <parameter name="test-env" value="QA"/>
+
+    <test verbose="2" preserve-order="true"  name="parameter tests">
+        <classes>
+            <class name="testng.ParameterizationDemoTests"/>
+            <class name="dropdown.DropdownHandlingTests"/>
+        </classes>
+    </test>
+</suite>
