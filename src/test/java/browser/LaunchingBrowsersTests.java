@@ -1,5 +1,6 @@
 package browser;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -13,6 +14,7 @@ public class LaunchingBrowsersTests {
     // launching different browsers
     @Test
     public void testLaunchAmazonChrome(){
+        WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.amazon.in/");
         driver.manage().window().maximize();
@@ -29,6 +31,7 @@ public class LaunchingBrowsersTests {
     // launching different browsers
     @Test
     public void testLaunchAmazonEdge(){
+        WebDriverManager.chromedriver().setup();
         WebDriver driver = new EdgeDriver();
         driver.get("https://www.amazon.in/");
         driver.manage().window().maximize();
@@ -44,6 +47,7 @@ public class LaunchingBrowsersTests {
 
     @Test
     public void testLaunchAmazonFirefox(){
+        WebDriverManager.firefoxdriver().setup();
         WebDriver driver = new FirefoxDriver();
         driver.get("https://www.amazon.in/");
         driver.manage().window().maximize();
@@ -61,7 +65,7 @@ public class LaunchingBrowsersTests {
 
     @Test
     public void testBrowserNavigation() throws InterruptedException {
-
+        WebDriverManager.edgedriver().setup();
         WebDriver driver = new EdgeDriver();
 
         driver.navigate().to("https://www.amazon.in/");

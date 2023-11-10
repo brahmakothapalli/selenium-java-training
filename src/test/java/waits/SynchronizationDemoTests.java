@@ -1,5 +1,6 @@
 package waits;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -39,7 +40,7 @@ public class SynchronizationDemoTests {
 
     @Test
     public void testCheckboxSelection() {
-
+        WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
         // implicit wait
@@ -75,6 +76,7 @@ public class SynchronizationDemoTests {
         String actualText = hellWorldText.getText();
 
         Assert.assertEquals(actualText, "Hello World!", "Text not matched");
+        driver.close();
 
     }
 }

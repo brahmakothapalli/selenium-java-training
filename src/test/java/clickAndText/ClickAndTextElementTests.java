@@ -1,5 +1,6 @@
 package clickAndText;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,7 +29,7 @@ public class ClickAndTextElementTests {
 
         String username = "standard_user";
         String pwd = "secret_sauce";
-
+        WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.saucedemo.com/");
         driver.manage().window().maximize();
@@ -60,5 +61,6 @@ public class ClickAndTextElementTests {
         String logoText = swagLogo.getText();
 
         Assert.assertEquals(logoText, "Swag Labs");
+        driver.close();
     }
 }

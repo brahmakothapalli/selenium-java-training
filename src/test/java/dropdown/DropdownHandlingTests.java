@@ -1,5 +1,6 @@
 package dropdown;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,9 +17,9 @@ public class DropdownHandlingTests {
     @Parameters("{browser}")
     @Test(groups = {"smoke"})
     public void testSelectDropdownValues() {
-
         String username = "standard_user";
         String pwd = "secret_sauce";
+        WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.get("https://www.saucedemo.com/");
@@ -61,11 +62,12 @@ public class DropdownHandlingTests {
 
         //using value
         select.selectByValue("za");
+        driver.close();
     }
 
     @Test
     public void testSelectDropdownValuesBootstrap() {
-
+        WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.get("http://seleniumpractise.blogspot.com/2016/08/bootstrap-dropdown-example-for-selenium.html");
         driver.manage().window().maximize();
@@ -85,5 +87,6 @@ public class DropdownHandlingTests {
                 break;
             }
         }
+        driver.close();
     }
 }

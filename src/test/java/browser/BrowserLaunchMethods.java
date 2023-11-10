@@ -18,7 +18,7 @@ public class BrowserLaunchMethods {
 
         driver.manage().window().maximize();
 
-        driver.get("url");
+        driver.get("https://www.saucedemo.com/");
 
         driver.close();
 

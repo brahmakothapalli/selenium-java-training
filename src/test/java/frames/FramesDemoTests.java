@@ -1,5 +1,6 @@
 package frames;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,7 +13,7 @@ public class FramesDemoTests {
 
     @Test
     public void testSwitchingIframes() {
-
+        WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/frames");
         driver.manage().window().maximize();
@@ -46,7 +47,7 @@ public class FramesDemoTests {
 
     @Test
     public void testSwitchingNestedFrames() {
-
+        WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/frames");
         driver.manage().window().maximize();
